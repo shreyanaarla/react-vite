@@ -13,20 +13,23 @@ const books = [
 
 
 function ListBooks() {
+  const [isList, setList] = useState(false)
   const booksList = books.map(b =>
     <li>{b.title}</li>
   );
   return (
     <>
-      <ol>{booksList}</ol>
+      <button onClick={() => setList(true)}>Display List Of Books</button>
+      {isList ? <ol>{booksList}</ol>: ""}
     </>
   );
 }
 
+
 function DisplayInfo() {
   const [isList, setList] = useState(false)
   const booksList = books.map(b =>
-    <li>Author: {b.author}, Genre: {b.genre}, ISBN: {b.isbn}</li>
+    <li><strong>Author:</strong> {b.author}, <strong>Genre:</strong> {b.genre}, <strong>ISBN:</strong> {b.isbn}</li>
   );
   return (
     <>
@@ -39,7 +42,7 @@ function DisplayInfo() {
 function FilmAdapt() {
   const [isList, setList] = useState(false)
   const booksList = books.map(b =>
-    <li>Has a film adaptation: {b.FilmAdaptation ? "Yes" : "No"}</li>
+    <li style = {{color: b.FilmAdaptation ? 'green' : 'red'}}>{b.FilmAdaptation ? "Yes" : "No"}</li>
   );
   return (
     <>
