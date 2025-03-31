@@ -11,38 +11,29 @@ const books = [
   {title: "The Lightning Thief", author: "Rick Riordan", genre: "Mythology", isbn: "9781250095268", FilmAdaptation: true},
 ];
 
-let book = {title: "", author: "", genre: "", isbn: "", FilmAdaptation: false}
 
 function ListBooks() {
-  const booksList = books.map(b =>
-    <li>{b.title}</li>
+  const booksList = books.map(book =>
+    <li>{book.title}</li>
   );
   return (
     <>
-      <ul>{booksList}</ul>
-    </>
-  );
-}
-
-function BookPicker() {
-  const [isBook, setBook] = useState(false)
-  return (
-    <>
-      <button onClick={() => book = books[Math.floor(Math.random() * 5)]}>Click Me To Pick A Book!</button>
-      <h1>{isBook ? book.title : ""}</h1>
+      <ol>{booksList}</ol>
     </>
   );
 }
 
 function DisplayInfo() {
+  const booksList = books.map(book =>
+    <li>Author: {book.author}, Genre: {book.genre}, ISBN: {book.isbn}</li>
+  );
   return (
     <>
-      <h3>Author: {book.author}</h3>
-      <p>Genre: {book.genre}</p>
-      <p>ISBN: {book.isbn}</p>
+      <ol>{booksList}</ol>
     </>
   );
 }
+
 
 function DisplayInfoButton() {
   return (
