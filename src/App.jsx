@@ -25,9 +25,11 @@ function ListBooks() {
 }
 
 function BookPicker() {
+  const [isBook, setBook] = useState(false)
   return (
     <>
       <button onClick={() => book = books[Math.floor(Math.random() * 5)]}>Click Me To Pick A Book!</button>
+      <h1>{isBook ? book.title : ""}</h1>
     </>
   );
 }
@@ -70,7 +72,6 @@ function App() {
     <div className="Card">
       <ListBooks />
       <BookPicker />
-      <h1>{book.title}</h1>
       <DisplayInfoButton />
       <FilmAdaptButton />
     </div>
