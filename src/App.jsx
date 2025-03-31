@@ -24,36 +24,31 @@ function ListBooks() {
 }
 
 function DisplayInfo() {
+  const [isList, setList] = useState(false)
   const booksList = books.map(b =>
     <li>Author: {b.author}, Genre: {b.genre}, ISBN: {b.isbn}</li>
   );
   return (
     <>
-      <ol>{booksList}</ol>
-    </>
-  );
-}
-
-
-function DisplayInfoButton() {
-  return (
-    <>
-      <button onClick={DisplayInfo()}>Display Book Information</button>
+      <button onClick={() => setList(true)}>Display Book Info</button>
+      {isList ? <ol>{booksList}</ol>: ""}
     </>
   );
 }
 
 function FilmAdapt() {
+  const [isList, setList] = useState(false)
+  const booksList = books.map(b =>
+    <li style = {{color: book.FilmAdaptation ? 'green' : 'red'}}>Has a film adaptation: {book.FilmAdaptation}</li>
+  );
   return (
-    <p style = {{color: book.FilmAdaptation ? 'green' : 'red'}}>Has a film adaptation: {book.FilmAdaptation}</p>
+    <>
+      <button onClick={() => setList(true)}>Is there a film adaptation?</button>
+      {isList ? <ol>{booksList}</ol>: ""}
+    </>
   );
 }
 
-function FilmAdaptButton() {
-  return (
-    <button onClick={FilmAdapt()}>Is there a film adaptation?</button>
-  );
-}
 
 function App() {
 
@@ -61,9 +56,8 @@ function App() {
     <>
     <div className="Card">
       <ListBooks />
-      <BookPicker />
-      <DisplayInfoButton />
-      <FilmAdaptButton />
+      <DisplayInfo />
+      <FilmAdapt />
     </div>
       
     </>
