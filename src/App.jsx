@@ -11,16 +11,15 @@ const books = [
   {title: "The Lightning Thief", author: "Rick Riordan", genre: "Mythology", isbn: "9781250095268", FilmAdaptation: true},
 ];
 
-let book = {title: "", author: "", genre: ""}
+let book = {title: "", author: "", genre: "", isbn: "", FilmAdaptation: false}
 
 function ListBooks() {
+  const booksList = books.map(b =>
+    <li>{b.title}</li>
+  );
   return (
     <>
-      <ul>
-        for (let b of books) {
-          <li>{b.title}</li>
-        }
-      </ul>
+      <ul>{booksList}</ul>
     </>
   );
 }
@@ -69,10 +68,12 @@ function App() {
 
   return (
     <>
+    <div className="Card">
       <ListBooks />
       <BookPicker />
       <DisplayInfoButton />
       <FilmAdaptButton />
+    </div>
       
     </>
   )
