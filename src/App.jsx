@@ -22,7 +22,7 @@ function ListBooks() {
     </>
   );
 }
-/*
+
 function DisplayInfo() {
   const booksList = books.map(b =>
     <li>Author: {b.author}, Genre: {b.genre}, ISBN: {b.isbn}</li>
@@ -54,14 +54,16 @@ function FilmAdaptButton() {
     <button onClick={FilmAdapt()}>Is there a film adaptation?</button>
   );
 }
-*/
+
 function App() {
 
   return (
     <>
     <div className="Card">
       <ListBooks />
-
+      <BookPicker />
+      <DisplayInfoButton />
+      <FilmAdaptButton />
     </div>
       
     </>
