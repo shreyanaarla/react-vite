@@ -13,8 +13,8 @@ const books = [
 
 
 function ListBooks() {
-  const booksList = books.map(book =>
-    <li>{book.title}</li>
+  const booksList = books.map(b =>
+    <li>{b.title}</li>
   );
   return (
     <>
@@ -24,8 +24,8 @@ function ListBooks() {
 }
 
 function DisplayInfo() {
-  const booksList = books.map(book =>
-    <li>Author: {book.author}, Genre: {book.genre}, ISBN: {book.isbn}</li>
+  const booksList = books.map(b =>
+    <li>Author: {b.author}, Genre: {b.genre}, ISBN: {b.isbn}</li>
   );
   return (
     <>
@@ -38,7 +38,7 @@ function DisplayInfo() {
 function DisplayInfoButton() {
   return (
     <>
-      <button onClick={DisplayInfo}>Display Book Information</button>
+      <button onClick={DisplayInfo()}>Display Book Information</button>
     </>
   );
 }
@@ -51,12 +51,11 @@ function FilmAdapt() {
 
 function FilmAdaptButton() {
   return (
-    <button onClick={FilmAdapt}>Is there a film adaptation?</button>
+    <button onClick={FilmAdapt()}>Is there a film adaptation?</button>
   );
 }
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
