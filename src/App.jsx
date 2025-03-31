@@ -39,7 +39,7 @@ function DisplayInfo() {
 function FilmAdapt() {
   const [isList, setList] = useState(false)
   const booksList = books.map(b =>
-    <li style = {{color: book.FilmAdaptation ? 'green' : 'red'}}>Has a film adaptation: {book.FilmAdaptation}</li>
+    <li>Has a film adaptation: {b.FilmAdaptation ? "Yes" : "No"}</li>
   );
   return (
     <>
